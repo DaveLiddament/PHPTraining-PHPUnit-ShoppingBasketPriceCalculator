@@ -11,7 +11,7 @@ namespace Training\PHPUnit\ShoppingBasket\Entity;
  * - a unique code (e.g. A125426)
  * - a name (e.g. Chicken and Bacon Sandwich)
  * - a price in pence
- * - traits
+ * - traits (optional)
  */
 class Product
 {
@@ -31,8 +31,9 @@ class Product
      */
     private $price;
 
+
     /**
-     * @var ProductTrait[]
+     * @var string
      */
     private $traits;
 
@@ -43,9 +44,9 @@ class Product
      * @param string $uniqueCode
      * @param string $name
      * @param int $price
-     * @param ProductTrait[] $traits
+     * @param string|null $traits
      */
-    public function __construct($uniqueCode, $name, $price, array $traits)
+    public function __construct($uniqueCode, $name, $price, $traits = null)
     {
         $this->uniqueCode = $uniqueCode;
         $this->name = $name;
@@ -78,7 +79,7 @@ class Product
     }
 
     /**
-     * @return ProductTrait[]
+     * @return string
      */
     public function getTraits()
     {
